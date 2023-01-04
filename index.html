@@ -448,7 +448,7 @@
     </div>
   </div> <!-- End footer -->
  
- <!-- Modal -->
+ <!-- Modal success-->
 <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -467,6 +467,49 @@
     </div>
   </div>
 </div>
+<!-- End modal sucess -->
+
+<!--Something Error  -->
+<div class="modal fade" id="ErrorModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Verification Message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      Something Error
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Something Error -->
+
+<!-- Modal failed -->
+<div class="modal fade" id="failedModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Verification Message</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      Form submission failed 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal failed  -->
    
   <script src="./assets/js/jquery-3.5.1.min.js"></script>
     
@@ -628,14 +671,15 @@
            
             $("#successModal").modal('show');
 
-            $("#fullName").val("");
+            $("#fullName").val("").css("border-bottom","solid 0px");
 
-            $("#email").val("");
+            $("#email").val("").css("border-bottom","solid 0px");
 
-            $("#contactNumber").val("");
+            $("#contactNumber").val("").css("border-bottom","solid 0px");
 
-            $("#message").val("");
+            $("#message").val("").css("border-bottom","solid 0px");
 
+                    
             // setTimeout(function () {
             //   window.location.reload();
             // }, 3000);
@@ -645,11 +689,12 @@
           },
           error: function (err) {
             alert("Something Error");
+            $("#ErrorModal").modal("show");
           }
           
           });
         }else{
-            alert("Message Send Unsuccessful");
+          $("#failedModal").modal("show");
           }
           
         })
